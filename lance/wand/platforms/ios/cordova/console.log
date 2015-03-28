@@ -1,0 +1,16 @@
+2015-03-28 14:49:58.698 wand[41164:1415258] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/lance/Library/Developer/CoreSimulator/Devices/84FBDD92-CA08-4C89-8112-F70D063F7A58/data/Containers/Data/Application/F4F1BE15-374F-4892-A6EF-6F6D8621F521/Library/Cookies/Cookies.binarycookies
+2015-03-28 14:49:58.744 wand[41164:1415258] Multi-tasking -> Device: YES, App: YES
+2015-03-28 14:49:58.749 wand[41164:1415258] Unlimited access to network resources
+2015-03-28 14:49:58.849 wand[41164:1415258] Resetting plugins due to page load.
+2015-03-28 14:49:58.936 wand[41164:1415258] Finished load of: file:///Users/lance/Library/Developer/CoreSimulator/Devices/84FBDD92-CA08-4C89-8112-F70D063F7A58/data/Containers/Bundle/Application/489981D9-4AED-4DB2-83CA-07837DC8FF9A/wand.app/www/index.html
+2015-03-28 15:02:43.680 wand[41164:1430901] Terminating since there is no system app.
+2015-03-28 15:11:25.759 wand[54325:1443982] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/lance/Library/Developer/CoreSimulator/Devices/84FBDD92-CA08-4C89-8112-F70D063F7A58/data/Containers/Data/Application/C31F6BB4-8D79-46B9-8E43-7818928E9430/Library/Cookies/Cookies.binarycookies
+2015-03-28 15:11:25.802 wand[54325:1443982] Multi-tasking -> Device: YES, App: YES
+2015-03-28 15:11:25.806 wand[54325:1443982] Unlimited access to network resources
+2015-03-28 15:11:25.875 wand[54325:1443982] Bluetooth Serial Cordova Plugin - BLE version
+2015-03-28 15:11:25.875 wand[54325:1443982] (c)2013-2014 Don Coleman
+2015-03-28 15:11:25.877 wand[54325:1443982] [CDVTimer][bluetoothserial] 1.906991ms
+2015-03-28 15:11:25.877 wand[54325:1443982] [CDVTimer][TotalPluginStartup] 2.077997ms
+2015-03-28 15:11:25.891 wand[54325:1443982] Status of CoreBluetooth central manager changed 2 (State BLE unsupported (CBCentralManagerStateResetting))
+2015-03-28 15:11:25.912 wand[54325:1443982] Resetting plugins due to page load.
+2015-03-28 15:11:25.966 wand[54325:1443982] Finished load of: file:///Users/lance/Library/Developer/CoreSimulator/Devices/84FBDD92-CA08-4C89-8112-F70D063F7A58/data/Containers/Bundle/Application/98B5EC5F-D590-4769-AE98-54E28A530575/wand.app/www/index.html
