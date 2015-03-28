@@ -21,34 +21,31 @@ void loop() {
   AccelerationReading accel = Bean.getAcceleration();
 
   // Format the serial output like this:    "X: 249  Y: -27   Z: -253"
-  //String stringToPrint = String();
-  //stringToPrint = stringToPrint + "X: " + acceleration.xAxis + "\tY: " + acceleration.yAxis + "\tZ: " + acceleration.zAxis;
-  //Serial.println(stringToPrint);
+  String stringToPrint = String();
+  stringToPrint = stringToPrint + "X: " + acceleration.xAxis + "\tY: " + acceleration.yAxis + "\tZ: " + acceleration.zAxis;
+  Serial.println(stringToPrint);
 
-  if (acceleration.xAxis > 200)
+  if (acceleration.zAxis < -200)
   {
-    uint16_t r = (abs(accel.xAxis)) / 4;
-    uint16_t g = (abs(accel.yAxis)) / 4;
-    uint16_t b = (abs(accel.zAxis)) / 4;
-    Bean.setLed((uint8_t)r,(uint8_t)g,(uint8_t)b);
+    
     //Bean.sleep(200);
+
+    if (acceleration.xAxis > 40)
+    {
+      //Bean.setLed(0,255,15);
+      Serial.print(stringToPrint);
+      Serial.println(" Flick!");
+      Bean.sleep(2000);
+    }
   }
-  /*else if (acceleration.yAxis > 200)
-  {
-    uint16_t r = (abs(accel.xAxis)) / 8;
-    uint16_t g = (abs(accel.yAxis)) / 8;
-    uint16_t b = (abs(accel.zAxis)) / 8;
-    Bean.setLed((uint8_t)r,(uint8_t)g,(uint8_t)b);
-    //Bean.sleep(200);
-  }
-  
-  */
+
   else
   {
     Bean.setLed(0,0,0);
   }    
 
 }
+
 
 
 
