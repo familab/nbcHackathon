@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Socket.io</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script>
+    $(document).ready(function(){
+          var socket = io();        
+          socket.on('refresh data',function(msg){
+            $("#show_data").text(msg);
+          });
+    });
+    </script>
+  </head>
+  <body>
+      <div style="margin: auto">
+      <div
+        id    = "show_data"
+        class = "jumbotron"
+        style = "width: 100%;
+                 height: 100%;
+                 padding: 2%;
+                 margin-left:5%;
+                 margin-top:-53px;
+                 font-size:1000%;
+                 font-weight: bold;"
+      >
+      </div>
+          </div>
+  </body>
+</html>
