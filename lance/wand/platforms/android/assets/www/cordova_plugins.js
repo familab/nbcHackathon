@@ -8,6 +8,13 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/com.randdusing.bluetoothle/www/bluetoothle.js",
+        "id": "com.randdusing.bluetoothle.BluetoothLe",
+        "clobbers": [
+            "window.bluetoothle"
+        ]
+    },
+    {
         "file": "plugins/plugin.http.request/www/http-request.js",
         "id": "plugin.http.request.phonegap-http-requst",
         "clobbers": [
@@ -19,6 +26,7 @@ module.exports.metadata =
 // TOP OF METADATA
 {
     "plugin.google.maps": "1.2.5",
+    "com.randdusing.bluetoothle": "2.1.0",
     "plugin.http.request": "1.0.4",
     "com.google.playservices": "23.0.0",
     "android.support.v4": "21.0.1"
