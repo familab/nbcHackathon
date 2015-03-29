@@ -17,8 +17,10 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-      app.setupMap();
-      app.setupBLE();
+      $("#start").click(function() {
+          app.setupMap();
+          app.setupBLE();
+      });
     },
     setupMap: function(){
         const DIAGONALLEY = new plugin.google.maps.LatLng(28.479882,-81.469544);
@@ -97,8 +99,7 @@ var app = {
               }, function(error) {
                 console.log("subscribe error", error);
               }, {
-                //"address": "D0:39:72:C8:C7:3C", // Mike1
-                "address": "D0:39:72:E5:21:8A", // Shane1
+                "address": $("#bean").val(),
                 "serviceUuid": "a495ff20-c5b1-4b44-b512-1370f02d74de",
                 "characteristicUuid": "a495ff21-c5b1-4b44-b512-1370f02d74de",
                 "isNotification" : true
@@ -106,16 +107,14 @@ var app = {
             }, function(error) {
               console.log("discover error", error);
             }, {
-              //"address": "D0:39:72:C8:C7:3C",  // Mike1
-              "address": "D0:39:72:E5:21:8A", // Shane1
+              "address": $("#bean").val()
             });
 
           }
         }, function(error) {
           console.log("connect error", error);
         }, {
-          //"address": "D0:39:72:C8:C7:3C",  // Mike1
-          "address": "D0:39:72:E5:21:8A", // Shane1
+          "address": $("#bean").val()
         });
       }, function(error) {
         console.log("init error", error);
@@ -126,7 +125,7 @@ var app = {
     },
     flick: function() {
       console.log('flick');
-      jQuery.get("http://10.0.1.9:5000/flash");
+      jQuery.get($("#flash").val());
       snd.play();
     }
 };
