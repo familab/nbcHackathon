@@ -5,7 +5,7 @@ var util = require('util'),
 
 function WandService() {
   WandService.super_.call(this, {
-      uuid: '12333333333333333333333333333337',
+      uuid: 'fffffffffffffffffffffffffffffff0',
       characteristics: [
           new WandCharacteristic()
       ]
