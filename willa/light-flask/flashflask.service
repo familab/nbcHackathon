@@ -1,0 +1,10 @@
+[Unit]
+Description=FlashFlask
+After=systemd-networkd.service
+
+[Service]
+TimeoutStartSec=0
+ExecStart=/usr/bin/python /home/root/light-flask/server.py
+
+[Install]
+WantedBy=multi-user.target
