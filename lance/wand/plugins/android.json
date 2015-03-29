@@ -1,1 +1,11 @@
-{"prepare_queue":{"installed":[],"uninstalled":[]},"config_munge":{"files":{"res/xml/config.xml":{"parents":{"/widget":[{"xml":"<feature name=\"BluetoothSerial\"><param name=\"android-package\" value=\"com.megster.cordova.BluetoothSerial\" /></feature>","count":1}]}},"AndroidManifest.xml":{"parents":{"/manifest":[{"xml":"<uses-permission android:name=\"android.permission.BLUETOOTH\" />","count":1},{"xml":"<uses-permission android:name=\"android.permission.BLUETOOTH_ADMIN\" />","count":1}]}}},"res/xml/config.xml":{"/widget":{"<feature name=\"BluetoothSerial\"><param name=\"android-package\" value=\"com.megster.cordova.BluetoothSerial\" /></feature>":0}},"AndroidManifest.xml":{"/manifest":{"<uses-permission android:name=\"android.permission.BLUETOOTH\" />":0,"<uses-permission android:name=\"android.permission.BLUETOOTH_ADMIN\" />":0}}},"installed_plugins":{"com.megster.cordova.bluetoothserial":{"PACKAGE_NAME":"org.familab.wand"}},"dependent_plugins":{}}
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {},
+    "dependent_plugins": {}
+}
