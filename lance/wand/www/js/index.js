@@ -1,4 +1,4 @@
-var snd = new Audio("img/shipphaser1.wav");
+var snd = new Audio("img/thunder2.wav");
 
 var app = {
     // Application Constructor
@@ -27,12 +27,12 @@ var app = {
         var map;
         document.addEventListener("deviceready", function() {
           // Initialize the map view
-          map = plugin.google.maps.Map.getMap({
+          app.map = map = plugin.google.maps.Map.getMap({
             'backgroundColor': 'white',
             'mapType': plugin.google.maps.MapTypeId.ROADMAP,
             'controls': {
                 'compass': true,
-                'myLocationButton': true,
+                'myLocationButton': false,
                 'indoorPicker': true,
                 'zoom': true
             },
@@ -56,14 +56,23 @@ var app = {
 
         function onMapReady() {
             map.showDialog();
-            map.addMarker({
-              'position': new plugin.google.maps.LatLng(28.479582,-81.469544),
-              'title': "Dementor"
+
+            var bounds = [
+              new plugin.google.maps.LatLng(28.479920, -81.469853),
+              new plugin.google.maps.LatLng(28.479122, -81.469289)
+            ];
+
+            map.addGroundOverlay({
+              'url': "www/img/DiagonAlley.png",
+              'bounds': bounds,
+              'opacity': 1
+            }, function(groundOverlay) {
+              map.animateCamera({
+                'target': bounds
+              });
             });
-            map.addMarker({
-              'position': new plugin.google.maps.LatLng(28.479882,-81.469744),
-              'title': "Dementor"
-            });
+
+            app.spawn();
         }
     },
     setupBLE: function() {
@@ -127,6 +136,23 @@ var app = {
       console.log('flick');
       jQuery.get($("#flash").val());
       snd.play();
+    },
+    spawn: function() {
+      for(var i = 0; i < 8; i++) {
+        var loc = app.getRandomLocation();
+        console.log(loc);
+        app.map.addMarker({
+          'position': new plugin.google.maps.LatLng(loc[0], loc[1]),
+          'icon': 'www/img/dementor-01.png',
+          'title': "Dementor"
+        });
+      }
+    },
+    getRandomLocation: function (){
+      return [
+        Math.random() * (28.479920 - 28.479122 + 1) / 1000 + 28.479122,
+        Math.random() * ( -81.468994 -  -81.470055 + 1) / 1000 +  -81.470055
+      ]
     }
 };
 
