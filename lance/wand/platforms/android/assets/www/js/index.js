@@ -63,7 +63,7 @@ var app = {
             ];
 
             map.addGroundOverlay({
-              'url': "www/img/DiagonAlley.png",
+              'url': "www/img/Diagon Alley Stylized-01.png",
               'bounds': bounds,
               'opacity': 1
             }, function(groundOverlay) {
@@ -135,9 +135,16 @@ var app = {
     flick: function() {
       console.log('flick');
       jQuery.get($("#flash").val());
+      jQuery.ajax({
+        type: "POST",
+        url: $("#pixmob").val(),
+        data: "RED"
+      });
       snd.play();
+      setTimeout(function(){app.marker.pop().remove();}, 2000);
     },
     spawn: function() {
+      app.marker = new Array;
       for(var i = 0; i < 8; i++) {
         var loc = app.getRandomLocation();
         console.log(loc);
@@ -145,13 +152,15 @@ var app = {
           'position': new plugin.google.maps.LatLng(loc[0], loc[1]),
           'icon': 'www/img/dementor-01.png',
           'title': "Dementor"
+        }, function(marker) {
+          app.marker.push(marker);
         });
       }
     },
     getRandomLocation: function (){
       return [
-        Math.random() * (28.479920 - 28.479122 + 1) / 1000 + 28.479122,
-        Math.random() * ( -81.468994 -  -81.470055 + 1) / 1000 +  -81.470055
+        (Math.random() * (28.479820 - 28.479122) + 28.479122),
+        (Math.random() * (-81.469289 - -81.469755) + - 81.469755)
       ]
     }
 };

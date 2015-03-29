@@ -7,8 +7,8 @@ var app = http.createServer(function(req, res) {
       body += chunk;
     });
     req.on('end', function () {
-      io.emit('pixmob', JSON.parse(body));
-      console.log(JSON.parse(body));
+      io.emit('pixmob', body);
+      console.log(body);
       res.writeHead(204);
       res.end();
     });
