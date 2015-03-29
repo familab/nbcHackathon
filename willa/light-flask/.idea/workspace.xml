@@ -26,8 +26,8 @@
       <file leaf-file-name="server.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1950867" vertical-offset="0" max-vertical-offset="750">
-              <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.8699422" vertical-offset="73" max-vertical-offset="765">
+              <caret line="45" column="27" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="27" />
               <folding>
                 <element signature="e#22#45#0" expanded="true" />
               </folding>
@@ -287,8 +287,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1950867" vertical-offset="0" max-vertical-offset="750">
-          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.8699422" vertical-offset="73" max-vertical-offset="765">
+          <caret line="45" column="27" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="27" />
           <folding>
             <element signature="e#22#45#0" expanded="true" />
           </folding>

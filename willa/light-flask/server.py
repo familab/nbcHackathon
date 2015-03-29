@@ -9,13 +9,6 @@ app = Flask(__name__)
 
 @app.route("/flash")
 def flash():
-    flashbackend()
-    return "OK"
-
-if __name__ == "__main__":
-    app.run()
-
-def flashbackend():
     b = Bridge("10.0.1.2") # Enter bridge IP here.
 
     #If running for the first time, press button on bridge and run with b.connect() uncommented
@@ -43,3 +36,11 @@ def flashbackend():
 
 
     print rnd_color
+    return "OK"
+
+@app.route('/')
+def hello_world():
+    return 'Hello World!'
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
