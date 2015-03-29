@@ -9,7 +9,7 @@
  */
 
 // When acceleration change goes beyond this threshold, the LED will blink.
-#define THRESHOLD 50
+#define THRESHOLD 100
 
 AccelerationReading previousAccel;
 
@@ -36,8 +36,8 @@ void loop() {
   {
     //if (accel.xAxis > 0 && accel.yAxis > 0){
     Bean.setLed(0,255,15);
-    Serial.print(stringToPrint);
-    Serial.println(" Flick!");
+    //Serial.print(stringToPrint);
+    Serial.println("Flick!");
     Bean.sleep(2000);
     //}
   }
@@ -46,13 +46,13 @@ void loop() {
     // Blink the LED
     Bean.setLed(50, 0, 0);
     Serial.println(stringToPrint);
-    //Bean.sleep(100);
+    Bean.sleep(20);
   }
 
-  else{
+  else if (accelDifference <= THRESHOLD){
     Bean.setLed(1, 1, 1);
     Serial.println("Not moving");
-    Bean.sleep(50);
+    //Bean.sleep(50);
   }
 }
 
