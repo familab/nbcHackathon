@@ -7,7 +7,8 @@ var app = http.createServer(function(req, res) {
       body += chunk;
     });
     req.on('end', function () {
-      io.emit('pixmob', body);
+      io.emit('pixmob', 1);
+      setTimeout(function(){io.emit('pixmob', 0)}, 5000);
       console.log(body);
       res.writeHead(204);
       res.end();
