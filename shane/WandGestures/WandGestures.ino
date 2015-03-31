@@ -1,23 +1,19 @@
 /* 
- This sketch reads the acceleration from the Bean's on-board accelerometer. 
+ This sketch shows you how to monitor if your Bean moves by sampling the acceleration at 5Hz and measuring change. 
  
- The acceleration readings are sent over serial and can be accessed in Arduino's Serial Monitor.
+ The LED will blink red when it's being moved.
  
- To use the Serial Monitor, set Arduino's serial port to "/tmp/tty.LightBlue-Bean"
- and the Bean as "Virtual Serial" in the OS X Bean Loader.
+ Please note that if motion detection is triggered often, the LED use will drain the battery quickly.
  
  This example code is in the public domain.
  */
 
+// When acceleration change goes beyond this threshold, the LED will blink.
 #define THRESHOLD 100
 
 AccelerationReading previousAccel;
 
 void setup() {
-  // Bean Serial is at a fixed baud rate. Changing the value in Serial.begin() has no effect.
-  Serial.begin();   
-  // Optional: Use Bean.setAccelerationRange() to set the sensitivity to something other than the default of ±2g.
-
   // Turn off the Bean's LED
   Bean.setLed(0, 0, 0);  
   // Initial reading  
@@ -25,37 +21,94 @@ void setup() {
 }
 
 void loop() {
-  // Get the current acceleration with range of ±2g, and a conversion of 3.91×10-3 g/unit or 0.03834(m/s^2)/units. 
-  AccelerationReading acceleration = Bean.getAcceleration();
-  AccelerationReading accel = Bean.getAcceleration();
-
-
-
-  // Format the serial output like this:    "X: 249  Y: -27   Z: -253"
-  String stringToPrint = String();
-
-
-  stringToPrint = stringToPrint + "X: " + acceleration.xAxis + "\tY: " + acceleration.yAxis + "\tZ: " + acceleration.zAxis;
-  //newStringToPrint = stringToPrint + "X: " + acceleration.xAxis + "\tY: " + acceleration.yAxis + "\tZ: " + acceleration.zAxis;
-
-  Serial.println(stringToPrint);
-
   // Get the current acceleration with a conversion of 3.91×10-3 g/unit.
-  AccelerationReading currentAccel = Bean.getAcceleration();   
+  AccelerationReading accel = Bean.getAcceleration();
+  String stringToPrint = String();
+  String fl = String();
+  stringToPrint = stringToPrint + "X: " + accel.xAxis + "\tY: " + accel.yAxis + "\tZ: " + accel.zAxis;
+  // Find the difference between the current acceleration and that of 200ms ago.
+  int accelDifference = getAccelDifference(previousAccel, accel); 
+  // Update previousAccel for the next loop.   
+  previousAccel = accel;                                            
 
+  // Check if the Bean has been moved beyond our threshold.
 
-  if (acceleration.zAxis > 500 || acceleration.zAxis < - 500)
+  if (accel.zAxis > 500 || accel.zAxis < -500)
   {
+    //if (accel.xAxis > 0 && accel.yAxis > 0){
+    Bean.setLed(0,255,15);
+    //Serial.print(stringToPrint);
 
-    if (acceleration.xAxis > 0 && acceleration.yAxis > 0){
+    uint8_t buffer[2];
 
-      //Bean.setLed(0,255,15);
-      Serial.print(stringToPrint);
-      Serial.println(" Flick!");
-      Bean.sleep(2000);
+    uint16_t an0 = 0;
+    uint16_t an1 = 1;
 
-    }
+    buffer[0] = an0 & 0xFF;
+    buffer[1] = an0 >> 8;
+
+    Bean.setScratchData(1, buffer, 2);
+
+    buffer[0] = an1 & 0xFF;
+    buffer[1] = an1 >> 8;
+
+    Bean.setScratchData(2, buffer, 2);
+    Serial.println("Flick!");
+    Bean.sleep(2000);
+    //}
+  }
+
+  else if (accelDifference > THRESHOLD){   
+    // Blink the LED
+    Bean.setLed(50, 0, 0);
+
+    uint8_t buffer[2];
+
+    uint16_t an0 = 2;
+    uint16_t an1 = 3;
+
+    buffer[0] = an0 & 0xFF;
+    buffer[1] = an0 >> 8;
+
+    Bean.setScratchData(1, buffer, 2);
+
+    buffer[0] = an1 & 0xFF;
+    buffer[1] = an1 >> 8;
+
+
+    Serial.println(stringToPrint);
+    Bean.sleep(20);
+  }
+
+  else if (accelDifference <= THRESHOLD){
+    Bean.setLed(1, 1, 1);
+
+    uint8_t buffer[2];
+
+    uint16_t an0 = 4;
+    uint16_t an1 = 5;
+
+    buffer[0] = an0 & 0xFF;
+    buffer[1] = an0 >> 8;
+
+    Bean.setScratchData(1, buffer, 2);
+
+    buffer[0] = an1 & 0xFF;
+    buffer[1] = an1 >> 8;
+
+    Serial.println("Not moving");
+    //Bean.sleep(50);
   }
 }
+
+// This function calculates the difference between two acceleration readings
+int getAccelDifference(AccelerationReading readingOne, AccelerationReading readingTwo){
+  int deltaX = abs(readingTwo.xAxis - readingOne.xAxis);
+  int deltaY = abs(readingTwo.yAxis - readingOne.yAxis);
+  int deltaZ = abs(readingTwo.zAxis - readingOne.zAxis);
+  // Return the magnitude
+  return deltaX + deltaY + deltaZ;   
+}
+
 
 
