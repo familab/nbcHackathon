@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="150" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XoM-hc-vrr">
+                                <rect key="frame" x="0.0" y="185" width="375" height="140"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="RfV-dq-Wqc"/>
+                                </constraints>
+                            </view>
+                            <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="V1i-vh-ERP">
+                                <rect key="frame" x="16" y="398" width="343" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Wfj-Oi-KDb"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Solid"/>
+                                    <segment title="Pulse"/>
+                                    <segment title="Strobe"/>
+                                </segments>
+                                <connections>
+                                    <action selector="effectChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="JTL-ya-icJ"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTO-iU-rln">
+                                <rect key="frame" x="16" y="52" width="95" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Effects" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWS-A5-yz5">
+                                <rect key="frame" x="16" y="350" width="95" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="URL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGS-IP-oOK">
+                                <rect key="frame" x="16" y="94" width="43" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Am-eS-8vR">
+                                <rect key="frame" x="58" y="91" width="221" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="2yR-w4-yQ4"/>
+                                </connections>
+                            </textField>
+                            <segmentedControl opaque="NO" tag="2" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="n4S-JZ-UkS">
+                                <rect key="frame" x="16" y="460" width="343" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="kaM-1X-AAh"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="+"/>
+                                    <segment title="-"/>
+                                    <segment title="Prime"/>
+                                </segments>
+                                <connections>
+                                    <action selector="effectChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="DIH-5r-r4d"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OmJ-sa-ERi">
+                                <rect key="frame" x="292" y="90" width="62" height="30"/>
+                                <state key="normal" title="Connect">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnConnect:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Xom-0k-8w0"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="     x.x.x.x:8000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHO-A8-1PM">
+                                <rect key="frame" x="58" y="123" width="215" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="V1i-vh-ERP" firstAttribute="trailing" secondItem="n4S-JZ-UkS" secondAttribute="trailing" id="0jW-gO-YH4"/>
+                            <constraint firstItem="9Am-eS-8vR" firstAttribute="leading" secondItem="lHO-A8-1PM" secondAttribute="leading" id="167-Xb-Ujg"/>
+                            <constraint firstItem="XoM-hc-vrr" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="BnT-lh-8Te"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XoM-hc-vrr" secondAttribute="trailing" constant="-16" id="CDN-bl-BjK"/>
+                            <constraint firstItem="V1i-vh-ERP" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="5" id="CqO-B5-LPx"/>
+                            <constraint firstItem="9Am-eS-8vR" firstAttribute="trailing" secondItem="lHO-A8-1PM" secondAttribute="trailing" id="DgZ-hJ-W5t"/>
+                            <constraint firstItem="lHO-A8-1PM" firstAttribute="top" secondItem="9Am-eS-8vR" secondAttribute="bottom" constant="2" id="Rb0-FE-5TS"/>
+                            <constraint firstItem="V1i-vh-ERP" firstAttribute="leading" secondItem="VTO-iU-rln" secondAttribute="leading" id="RtV-aM-AHK"/>
+                            <constraint firstItem="9Am-eS-8vR" firstAttribute="leading" secondItem="xGS-IP-oOK" secondAttribute="leading" constant="40" id="Tcq-RH-FED"/>
+                            <constraint firstItem="V1i-vh-ERP" firstAttribute="leading" secondItem="xGS-IP-oOK" secondAttribute="leading" id="c6d-CE-zRQ"/>
+                            <constraint firstItem="V1i-vh-ERP" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" constant="5" id="d7J-5R-Tin"/>
+                            <constraint firstItem="V1i-vh-ERP" firstAttribute="trailing" secondItem="OmJ-sa-ERi" secondAttribute="trailing" id="exh-Xw-vyD"/>
+                            <constraint firstItem="V1i-vh-ERP" firstAttribute="leading" secondItem="n4S-JZ-UkS" secondAttribute="leading" id="eyO-HQ-ElX"/>
+                            <constraint firstItem="9Am-eS-8vR" firstAttribute="top" secondItem="VTO-iU-rln" secondAttribute="bottom" constant="18" id="giN-9U-Jqk"/>
+                            <constraint firstItem="9Am-eS-8vR" firstAttribute="trailing" secondItem="OmJ-sa-ERi" secondAttribute="trailing" constant="-72" id="kIs-Jh-m2k"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="colorView" destination="XoM-hc-vrr" id="hFr-Rl-Fhg"/>
+                        <outlet property="effectToggle1" destination="V1i-vh-ERP" id="xXC-uB-00a"/>
+                        <outlet property="effectToggle2" destination="n4S-JZ-UkS" id="ttE-Xo-azj"/>
+                        <outlet property="titleLabel" destination="VTO-iU-rln" id="7bC-yR-HOP"/>
+                        <outlet property="urlTextField" destination="9Am-eS-8vR" id="cVc-6Y-idX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="304.5" y="398.5"/>
+        </scene>
+    </scenes>
+</document>
